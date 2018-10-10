@@ -82,7 +82,9 @@
     <script src="{{ asset('assets/Admin/html/js/custom.min.js') }}"></script>
     {{-- <script src="{{ asset('assets/Admin/html/js/dashboard1.js') }}"></script> --}}
     <script src="{{ asset('assets/Admin/plugins/bower_components/toast-master/js/jquery.toast.js') }}"></script>    
-
+    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('assets/tinymce/tinymce.min.js') }}"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
     @yield('scripts')
 </body>
 

@@ -15,7 +15,7 @@ class CreateFotosTable extends Migration
     {
         Schema::create('fotos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('foto');            
+            $table->string('foto')->nullable();            
             $table->unsignedInteger('id_mobil');
             $table->foreign('id_mobil')->references('id')->on('mobils')->onDelete('CASCADE');
             $table->timestamps();

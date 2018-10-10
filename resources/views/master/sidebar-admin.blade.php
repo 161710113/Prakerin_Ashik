@@ -14,6 +14,9 @@
                     <a href="{{route ('lokasi.index')}}" class="waves-effect"><i class="fa fa-list-ul fa-fw" aria-hidden="true"></i><span class="hide-menu">Lokasi</span></a>
                 </li>
                 <li>
+                    <a href="{{route ('berita.index')}}" class="waves-effect"><i class="fa fa-list-ul fa-fw" aria-hidden="true"></i><span class="hide-menu">Berita</span></a>
+                </li>
+                <li>
                         <a href="href="{{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="waves-effect">
                         <i class="fa fa-power-off fa-fw"></i>Logout</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

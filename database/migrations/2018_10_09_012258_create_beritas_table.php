@@ -17,7 +17,7 @@ class CreateBeritasTable extends Migration
             $table->increments('id');
             $table->string('judul');
             $table->text('isi');
-            $table->string('sampul');
+            $table->string('sampul')->nullable();
             $table->timestamps();
         });
     }

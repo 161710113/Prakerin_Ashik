@@ -18,7 +18,7 @@ class MerkSeeder extends Seeder
         $merk = Merk::create(['nama_merk'=>'Honda']);
         $merk2 = Merk::create(['nama_merk'=>'Daihatsu']);
         $merk3 = Merk::create(['nama_merk'=>'Toyota']);
-        $merk4 = Merk::create(['nama_merk'=>'Ferari']);
+        $merk4 = Merk::create(['nama_merk'=>'Ferrari']);
         $merk5 = Merk::create(['nama_merk'=>'Lamborghini']);
         $merk6 = Merk::create(['nama_merk'=>'Nisan']);
         $merk7 = Merk::create(['nama_merk'=>'BMW']);

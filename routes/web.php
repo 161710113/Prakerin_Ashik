@@ -15,10 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('merk', 'MerkController');
-Route::resource('tipe', 'TipeController');
-Route::resource('lokasi', 'LokasiController');
-
+Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function () {
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('merk', 'MerkController');
+    Route::resource('tipe', 'TipeController');
+    Route::resource('lokasi', 'LokasiController');
+    Route::resource('berita', 'BeritaController');
+    });
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
