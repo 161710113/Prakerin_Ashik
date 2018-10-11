@@ -9,7 +9,8 @@
 <div class="form-group{{ $errors->has('transmisi') ? ' has-error' : '' }}">
     {!! Form::label('transmisi', 'Transmisi', ['class'=>'col-md-2 control-label']) !!}
     <div class="col-md-8">
-        {!! Form::text('transmisi', null, ['class'=>'form-control']) !!}
+        {!! Form::radio('transmisi', 'Automatic', ['class'=>'radio-control']) !!} Automatic
+        {!! Form::radio('transmisi', 'Manual', ['class'=>'radio-control']) !!} Manual
         {!! $errors->first('transmisi', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
@@ -17,23 +18,24 @@
 <div class="form-group{{ $errors->has('bahan_bakar') ? ' has-error' : '' }}">
     {!! Form::label('bahan_bakar', 'Bahan Bakar', ['class'=>'col-md-2 control-label']) !!}
     <div class="col-md-8">
-        {!! Form::text('bahan_bakar', null, ['class'=>'form-control']) !!}
+        {!! Form::radio('bahan_bakar', 'Bensin', ['class'=>'radio-control']) !!} Bensin
+        {!! Form::radio('bahan_bakar', 'Solar', ['class'=>'radio-control']) !!} Solar
         {!! $errors->first('bahan_bakar', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 
 <div class="form-group{{ $errors->has('kilometer') ? ' has-error' : '' }}">
-    {!! Form::label('kilometer', 'Kilometer', ['class'=>'col-md-2 control-label']) !!}
-    <div class="col-md-8">
-        {!! Form::text('kilometer', null, ['class'=>'form-control']) !!}
+    {!! Form::label('kilometer', 'Kilometer', ['class'=>'col-md-2 control-label']) !!} Kilometer
+    <div class="col-md-7">
+        {!!  Form::number('kilometer', null, ['class'=>'form-control']) !!}
         {!! $errors->first('kilometer', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 
 <div class="form-group{{ $errors->has('kapasitas_mesin') ? ' has-error' : '' }}">
-    {!! Form::label('kapasitas_mesin', 'Kapasitas Mesin', ['class'=>'col-md-2 control-label']) !!}
-    <div class="col-md-8">
-        {!! Form::text('kapasitas_mesin', null, ['class'=>'form-control']) !!}
+    {!! Form::label('kapasitas_mesin', 'Kapasitas Mesin', ['class'=>'col-md-2 control-label']) !!} CC
+    <div class="col-md-7">
+        {!!  Form::number('kapasitas_mesin', null, ['class'=>'form-control']) !!}
         {!! $errors->first('kapasitas_mesin', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
@@ -47,9 +49,9 @@
 </div>
 
 <div class="form-group{{ $errors->has('harga') ? ' has-error' : '' }}">
-    {!! Form::label('harga', 'Harga', ['class'=>'col-md-2 control-label']) !!}
-    <div class="col-md-8">
-        {!! Form::text('harga', null, ['class'=>'form-control']) !!}
+    {!! Form::label('harga', 'Harga &nbsp;&nbsp;&nbsp;&nbsp; Rp.', ['class'=>'col-md-2 control-label']) !!}
+    <div class="col-md-7">
+        {!!  Form::number('harga', null, ['class'=>'form-control']) !!}
         {!! $errors->first('harga', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
@@ -95,9 +97,10 @@
 </div>
 
 <div class="form-group {!! $errors->has('id_user') ? 'has-error' : '' !!}">
-    {!! Form::label('id_user', 'Merk', ['class'=>'col-md-2 control-label']) !!}
+    {{-- {!! Form::label('id_user', 'Pemilik', ['class'=>'col-md-2 control-label']) !!} --}}
     <div class="col-md-8">
-        {!! Form::select('id_user', [''=>'']+App\User::pluck('name','id')->all(), null) !!}
+        <input type="hidden" name="id_user" value= "{{ Auth::user()->id }}">
+        {{-- {!! Form::select('id_user', [''=>'']+App\User::pluck('name','id')->all(), null) !!} --}}
         {!! $errors->first('id_user', '<p class="help-block">:message</p>') !!}
     </div>
 </div>

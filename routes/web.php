@@ -15,8 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function () {
-    Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');  
+
+Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function () {    
     Route::resource('foto', 'FotoController');
     Route::resource('merk', 'MerkController');
     Route::resource('tipe', 'TipeController');
