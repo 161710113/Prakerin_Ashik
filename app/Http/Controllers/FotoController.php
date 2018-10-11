@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Foto;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Html\Builder;
+use Yajra\Datatables\Datatables;
+use App\Mobil;
 
 class FotoController extends Controller
 {
@@ -12,9 +15,25 @@ class FotoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, Builder $htmlBuilder)
     {
-        //
+    if ($request->ajax()) {
+        $foto = Foto::with('mobil');
+        return Datatables::of($foto)
+        ->addColumn('action', function($foto){
+            return view('datatable._action', [
+                'model'=> $foto,
+                'form_url'=> route('foto.destroy', $foto->id),
+                'edit_url'=> route('foto.edit', $foto->id),
+                'confirm_message' => 'Yakin mau menghapus ' . $foto->title . '?'
+                ]);
+            })->make(true);
+        }
+        $html = $htmlBuilder
+        ->addColumn(['data' => 'foto', 'name'=>'foto', 'title'=>'Foto'])
+        ->addColumn(['data' => 'mobil.nama_mobil', 'name'=>'mobil.nama_mobil', 'title'=>'Nama Mobil'])
+        ->addColumn(['data' => 'action', 'name'=>'action', 'title'=>'', 'orderable'=>false, 'searchable'=>false]);
+        return view('Foto.index')->with(compact('html'));
     }
 
     /**

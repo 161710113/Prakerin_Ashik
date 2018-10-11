@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('foto', 'FotoController');
     Route::resource('merk', 'MerkController');
     Route::resource('tipe', 'TipeController');
     Route::resource('lokasi', 'LokasiController');
