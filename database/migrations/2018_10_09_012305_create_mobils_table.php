@@ -22,6 +22,7 @@ class CreateMobilsTable extends Migration
             $table->string('kapasitas_mesin');
             $table->string('warna');
             $table->string('harga');
+            $table->string('no_hp');
             $table->text('deskripsi');
             $table->unsignedInteger('id_merk');
             $table->foreign('id_merk')->references('id')->on('merks')->onDelete('CASCADE');
@@ -29,6 +30,9 @@ class CreateMobilsTable extends Migration
             $table->foreign('id_tipe')->references('id')->on('tipes')->onDelete('CASCADE');
             $table->unsignedInteger('id_lokasi');
             $table->foreign('id_lokasi')->references('id')->on('lokasis')->onDelete('CASCADE');
+            $table->unsignedInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('CASCADE');            
+            // $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

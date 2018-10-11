@@ -5,6 +5,9 @@
                     <a href="home" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a>
                 </li>
                 <li>
+                    <a href="{{route ('mobil.index')}}" class="waves-effect"><i class="fa fa-list-ul fa-fw" aria-hidden="true"></i><span class="hide-menu">Mobil</span></a>
+                </li>
+                <li>
                     <a href="{{route ('merk.index')}}" class="waves-effect"><i class="fa fa-list-ul fa-fw" aria-hidden="true"></i><span class="hide-menu">Merk</span></a>
                 </li>
                 <li>

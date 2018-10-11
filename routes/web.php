@@ -21,5 +21,6 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function () {
     Route::resource('tipe', 'TipeController');
     Route::resource('lokasi', 'LokasiController');
     Route::resource('berita', 'BeritaController');
+    Route::resource('mobil', 'MobilController');
     });
 Auth::routes();
